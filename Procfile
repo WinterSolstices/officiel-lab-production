@@ -1,1 +1,1 @@
-web: java -Dport=8080 -Dstore=memory -jar target/cart-server-app.jar
+web: java -Dport=$PORT -Dstore=memory -jar target/cart-server-app.jar
