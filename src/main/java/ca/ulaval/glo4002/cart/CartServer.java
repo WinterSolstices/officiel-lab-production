@@ -20,9 +20,20 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 
 public class CartServer implements Runnable {
-    private static final int PORT = 7222;
+    private static int PORT = 7222;
 
     public static void main(String[] args) {
+        try {
+            String port = System.getProperty("port");
+            if (port != null) {
+                PORT = Integer.parseInt(port);
+            } else {
+                System.out.println("Port not specified in options. Falling back to Default (" + PORT + ")");
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("-Dport option must be an integer.");
+            System.exit(1);
+        }
         new CartServer().run();
     }
 
