@@ -107,6 +107,8 @@
                            <goal>shade</goal>
                        </goals>
                        <configuration>
+                            <!-- Défini le nom du JAR final -->
+                            <finalName>cart-server-app</finalName>
                            <createDependencyReducedPom>false</createDependencyReducedPom>
                            <transformers>
                                <transformer
